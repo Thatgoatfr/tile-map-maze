@@ -1,7 +1,5 @@
-let mySprite: Sprite = null
 tiles.setCurrentTilemap(tilemap`level1`)
 scene.setBackgroundColor(1)
-controller.moveSprite(mySprite)
 mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.One), sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
