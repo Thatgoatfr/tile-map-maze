@@ -3,7 +3,8 @@
     "description": "",
     "dependencies": {
         "device": "*",
-        "multiplayer": "*"
+        "multiplayer": "*",
+        "arcade-split-screen": "pub:69183-37427-28032-49871"
     },
     "files": [
         "main.blocks",

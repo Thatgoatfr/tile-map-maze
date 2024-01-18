@@ -1,6 +1,6 @@
 tiles.setCurrentTilemap(tilemap`level1`)
 scene.setBackgroundColor(1)
-let mySprite = sprites.create(img`
+mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.One), sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     . . . . . . 5 5 5 5 5 5 . . . . 
@@ -17,6 +17,6 @@ let mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
-    `, SpriteKind.Player)
-controller.moveSprite(mySprite)
-scene.cameraFollowSprite(mySprite)
+    `, SpriteKind.Player))
+mp.moveWithButtons(mp.playerSelector(mp.PlayerNumber.One))
+splitScreen.cameraFollowSprite(splitScreen.Camera.Camera1, null)
