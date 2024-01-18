@@ -21,4 +21,3 @@ mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.One), sprites.create(img`
 mp.moveWithButtons(mp.playerSelector(mp.PlayerNumber.One))
 splitScreen.cameraFollowSprite(splitScreen.Camera.Camera1, null)
 splitScreen.setCameraRegion(splitScreen.Camera.Camera1, splitScreen.CameraRegion.VerticalLeftHalf)
-splitScreen.setBorderColor(15)
