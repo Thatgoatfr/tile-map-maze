@@ -1,3 +1,6 @@
+let mySprite4: Sprite = null
+let mySprite3: Sprite = null
+let mySprite2: Sprite = null
 tiles.setCurrentTilemap(tilemap`level1`)
 scene.setBackgroundColor(1)
 let mySprite = sprites.create(img`
@@ -18,12 +21,18 @@ let mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Player)
-controller.moveSprite(mySprite)
+mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.One), mySprite)
+mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two), mySprite2)
+mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.Three), mySprite3)
+mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.Four), mySprite4)
+mp.moveWithButtons(mp.playerSelector(mp.PlayerNumber.One))
+mp.moveWithButtons(mp.playerSelector(mp.PlayerNumber.Two))
+mp.moveWithButtons(mp.playerSelector(mp.PlayerNumber.Three))
+mp.moveWithButtons(mp.playerSelector(mp.PlayerNumber.Four))
 splitScreen.setCameraRegion(splitScreen.Camera.Camera1, splitScreen.CameraRegion.TopLeft)
 splitScreen.cameraFollowSprite(splitScreen.Camera.Camera1, mySprite)
-splitScreen.setBorderColor(14)
-splitScreen.cameraFollowSprite(splitScreen.Camera.Camera1, mySprite)
-let mySprite2 = sprites.create(img`
+splitScreen.setBorderColor(8)
+mySprite2 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . 7 7 7 7 7 7 . . . . 
     . . . . . 7 7 7 7 7 7 7 7 . . . 
@@ -42,9 +51,8 @@ let mySprite2 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Player)
 splitScreen.cameraFollowSprite(splitScreen.Camera.Camera2, mySprite2)
-splitScreen.cameraFollowSprite(splitScreen.Camera.Camera2, mySprite2)
 splitScreen.setCameraRegion(splitScreen.Camera.Camera2, splitScreen.CameraRegion.TopRight)
-let mySprite3 = sprites.create(img`
+mySprite3 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . 6 6 6 6 6 6 . . . . 
     . . . . . 6 6 6 6 6 6 6 6 . . . 
@@ -63,5 +71,22 @@ let mySprite3 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Player)
 splitScreen.cameraFollowSprite(splitScreen.Camera.Camera3, mySprite3)
-splitScreen.cameraFollowSprite(splitScreen.Camera.Camera3, mySprite3)
 splitScreen.setCameraRegion(splitScreen.Camera.Camera3, splitScreen.CameraRegion.BottomLeft)
+mySprite4 = sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . 8 8 8 8 8 8 . . . . 
+    . . . . . 8 8 8 8 8 8 8 8 . . . 
+    . . . . . . 7 7 7 7 7 . . . . . 
+    . . . . . . 7 f 7 f 7 . . . . . 
+    . . . . . . 7 7 7 7 7 . . . . . 
+    . . . . . . 7 7 7 7 7 . . . . . 
+    . . . . . 7 8 8 8 8 8 7 . . . . 
+    . . . . . 7 8 8 8 8 8 7 . . . . 
+    . . . . . . 8 8 8 8 8 . . . . . 
+    . . . . . . 7 7 . 7 7 . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Player)
