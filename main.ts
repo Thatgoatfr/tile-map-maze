@@ -90,3 +90,5 @@ mySprite4 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Player)
+splitScreen.cameraFollowSprite(splitScreen.Camera.Camera4, mySprite2)
+splitScreen.setCameraRegion(splitScreen.Camera.Camera4, splitScreen.CameraRegion.BottomRight)
