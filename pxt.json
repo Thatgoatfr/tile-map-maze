@@ -4,7 +4,9 @@
     "dependencies": {
         "device": "*",
         "multiplayer": "*",
-        "arcade-split-screen": "pub:69183-37427-28032-49871"
+        "arcade-split-screen": "pub:69183-37427-28032-49871",
+        "animation": "*",
+        "arcade-character-animations": "github:microsoft/arcade-character-animations#v0.0.2"
     },
     "files": [
         "main.blocks",
