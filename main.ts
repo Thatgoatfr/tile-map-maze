@@ -1,71 +1,9 @@
-enum ActionKind {
-    Walking,
-    Idle,
-    Jumping
-}
-function animaRUN() {
-    mainRunLeft = animation.createAnimation(ActionKind.Walking, 1000)
-    animation.attachAnimation(mySprite, mainRunLeft)
-    mainRunLeft.addAnimationFrame(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . 5 5 5 5 . . . . . . . . 
-        . . . 5 5 5 5 5 5 . . . . . . . 
-        . . . . f f f f f . . . . . . . 
-        . . . . e f f f f . . . . . . . 
-        . . . . f f f f f . . . . . . . 
-        . . . . f f f f f . . . . . . . 
-        . . . f 5 5 5 5 5 f . . . . . . 
-        . . . f 5 5 5 5 5 f . . . . . . 
-        . . . . 5 5 5 5 5 . . . . . . . 
-        . . . . f f . f f . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `)
-    mainRunLeft.addAnimationFrame(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . 5 5 5 5 . . . . . . . . 
-        . . . 5 5 5 5 5 5 . . . . . . . 
-        . . . . f f f f f . . . . . . . 
-        . . . . e f f f f . . . . . . . 
-        . . . . f f f f f . . . . . . . 
-        . . . . f f f f f . . . . . . . 
-        . . f f 5 5 5 5 5 f . . . . . . 
-        . . . . 5 5 5 5 5 f . . . . . . 
-        . . . . 5 5 5 5 5 . . . . . . . 
-        . . . . f f . f f . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `)
-    mainRunLeft.addAnimationFrame(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . 5 5 5 5 . . . . . . . . 
-        . . . 5 5 5 5 5 5 . . . . . . . 
-        . . . . f f f f f . . . . . . . 
-        . . . . e f f f f . . . . . . . 
-        . . . . f f f f f . . . . . . . 
-        . . . . f f f f f . . . . . . . 
-        . . . f 5 5 5 5 5 f f . . . . . 
-        . . . f 5 5 5 5 5 . . . . . . . 
-        . . . . 5 5 5 5 5 . . . . . . . 
-        . . . . f f . f f . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `)
-}
-let mainRunLeft: animation.Animation = null
-let mySprite: Sprite = null
+let mySprite4: Sprite = null
+let mySprite3: Sprite = null
+let mySprite2: Sprite = null
 tiles.setCurrentTilemap(tilemap`level1`)
 scene.setBackgroundColor(1)
-mySprite = sprites.create(img`
+let mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     . . . . . . 5 5 5 5 5 5 . . . . 
@@ -84,7 +22,17 @@ mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Player)
 mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.One), mySprite)
-let mySprite2 = sprites.create(img`
+mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two), mySprite2)
+mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.Three), mySprite3)
+mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.Four), mySprite4)
+mp.moveWithButtons(mp.playerSelector(mp.PlayerNumber.One))
+mp.moveWithButtons(mp.playerSelector(mp.PlayerNumber.Two))
+mp.moveWithButtons(mp.playerSelector(mp.PlayerNumber.Three))
+mp.moveWithButtons(mp.playerSelector(mp.PlayerNumber.Four))
+splitScreen.setCameraRegion(splitScreen.Camera.Camera1, splitScreen.CameraRegion.TopLeft)
+splitScreen.cameraFollowSprite(splitScreen.Camera.Camera1, mySprite)
+splitScreen.setBorderColor(8)
+mySprite2 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . 7 7 7 7 7 7 . . . . 
     . . . . . 7 7 7 7 7 7 7 7 . . . 
@@ -102,8 +50,9 @@ let mySprite2 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Player)
-mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two), mySprite2)
-let mySprite3 = sprites.create(img`
+splitScreen.cameraFollowSprite(splitScreen.Camera.Camera2, mySprite2)
+splitScreen.setCameraRegion(splitScreen.Camera.Camera2, splitScreen.CameraRegion.TopRight)
+mySprite3 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . 6 6 6 6 6 6 . . . . 
     . . . . . 6 6 6 6 6 6 6 6 . . . 
@@ -121,8 +70,9 @@ let mySprite3 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Player)
-mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.Three), mySprite3)
-let mySprite4 = sprites.create(img`
+splitScreen.cameraFollowSprite(splitScreen.Camera.Camera3, mySprite3)
+splitScreen.setCameraRegion(splitScreen.Camera.Camera3, splitScreen.CameraRegion.BottomLeft)
+mySprite4 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . 8 8 8 8 8 8 . . . . 
     . . . . . 8 8 8 8 8 8 8 8 . . . 
@@ -140,17 +90,5 @@ let mySprite4 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Player)
-mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.Four), mySprite4)
-mp.moveWithButtons(mp.playerSelector(mp.PlayerNumber.One))
-mp.moveWithButtons(mp.playerSelector(mp.PlayerNumber.Two))
-mp.moveWithButtons(mp.playerSelector(mp.PlayerNumber.Three))
-mp.moveWithButtons(mp.playerSelector(mp.PlayerNumber.Four))
-splitScreen.setCameraRegion(splitScreen.Camera.Camera1, splitScreen.CameraRegion.TopLeft)
-splitScreen.cameraFollowSprite(splitScreen.Camera.Camera1, mySprite)
-splitScreen.setBorderColor(8)
-splitScreen.cameraFollowSprite(splitScreen.Camera.Camera2, mySprite2)
-splitScreen.setCameraRegion(splitScreen.Camera.Camera2, splitScreen.CameraRegion.TopRight)
-splitScreen.cameraFollowSprite(splitScreen.Camera.Camera3, mySprite3)
-splitScreen.setCameraRegion(splitScreen.Camera.Camera3, splitScreen.CameraRegion.BottomLeft)
-splitScreen.cameraFollowSprite(splitScreen.Camera.Camera4, mySprite4)
+splitScreen.cameraFollowSprite(splitScreen.Camera.Camera4, mySprite2)
 splitScreen.setCameraRegion(splitScreen.Camera.Camera4, splitScreen.CameraRegion.BottomRight)
