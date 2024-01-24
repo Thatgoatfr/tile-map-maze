@@ -3,8 +3,32 @@ enum ActionKind {
     Idle,
     Jumping
 }
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+	
+})
+sprites.onCreated(SpriteKind.Player, function (sprite) {
+	
+})
 tiles.setCurrentTilemap(tilemap`level1`)
 scene.setBackgroundColor(1)
+let mySprite5 = sprites.create(img`
+    . . . . . . . . f f . . . . . . 
+    . . . . f a a a a a a a a . . . 
+    . . . . f a a a f a a a a . . . 
+    . . . . f a a a f a a a a . . . 
+    . . . . f a a a f a a a a . . . 
+    . . . . f a a a 7 a 7 7 7 . . . 
+    . . . . b c c c f a f f f . . . 
+    . . . f c c c c f a f f f f . . 
+    f f f f f c c c 7 c f f f f f . 
+    f f f a f c c c 7 c f f f c f . 
+    f f f a f c c c 7 c f f f c f . 
+    f f f a f c c c 7 c f f f c f . 
+    f f f c f f f f f f f f f c f . 
+    . . . . f 6 6 6 f 7 6 6 6 . . . 
+    f f f f c f f f 1 f f f f f f . 
+    f f f f f f f f 1 f f f f f f c 
+    `, SpriteKind.Enemy)
 let mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
