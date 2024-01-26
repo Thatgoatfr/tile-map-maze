@@ -6,7 +6,9 @@
         "multiplayer": "*",
         "arcade-split-screen": "pub:69183-37427-28032-49871",
         "animation": "*",
-        "arcade-character-animations": "github:microsoft/arcade-character-animations#v0.0.2"
+        "arcade-character-animations": "github:microsoft/arcade-character-animations#v0.0.2",
+        "Timers": "github:microsoft/arcade-timers#v1.1.0",
+        "whaleSong1.1": "pub:21344-14827-69956-59020"
     },
     "files": [
         "main.blocks",
@@ -28,5 +30,5 @@
     "supportedTargets": [
         "arcade"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "tsprj"
 }
